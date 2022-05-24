@@ -6,3 +6,6 @@ Crie um método para apresentar o status atual do robô.
  
 # Apresente o diagrama de classe UML da classe desenvolvida e um diagrama de objeto.
 Dica: Utilize o README.md do repositorio github para exibir o diagrama de classes e outras informações necessárias.
+
+## Diagrama UML:
+![DiagramaUML_POO](https://github.com/vbraga1/faculdadeTrabalhos/blob/main/projetoJavaRobo/diagramaUML.png)

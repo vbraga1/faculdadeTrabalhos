@@ -11,6 +11,6 @@ Digitar o número "3", irá deletar o bloco de notas que acabou de criar.
 
 Digitar o número "4", irá exibir novamente os comandos de ajuda.
 
-Digitar o número "5", irá exibir a versao do programa.
+Digitar o número "5", irá exibir a versão do programa.
 
 Digitar o número "6", irá sair do programa.

@@ -1,0 +1,132 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+ 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+ 
+public class ConversorDeTemperatura extends JFrame {
+ 
+        private JLabel lblResultado;
+        private JTextField txtFahrenheit;
+        private JTextField txtCelsius;
+        private JTextField txtKelvin;
+        private JButton btnFahrenheit;
+        private JButton btnCelsius;
+        private JButton btnKelvin;
+        private JPanel panel;
+        private JPanel panel_1;
+        private JPanel panel_2;
+ 
+        public ConversorDeTemperatura() {
+                super("Conversor de temperatura");
+               
+                panel = new JPanel();
+                getContentPane().add(panel, BorderLayout.NORTH);
+               
+                JLabel lblTemperaturas = new JLabel("Temperaturas");
+                panel.add(lblTemperaturas);
+               
+                panel_1 = new JPanel();
+                getContentPane().add(panel_1, BorderLayout.CENTER);
+                panel_1.setLayout(null);
+               
+                txtFahrenheit = new JTextField();
+                txtFahrenheit.setBounds(60, 11, 86, 20);
+                panel_1.add(txtFahrenheit);
+                txtFahrenheit.setColumns(10);
+               
+                txtCelsius = new JTextField();
+                txtCelsius.setColumns(10);
+                txtCelsius.setBounds(60, 42, 86, 20);
+                panel_1.add(txtCelsius);
+               
+                txtKelvin = new JTextField();
+                txtKelvin.setColumns(10);
+                txtKelvin.setBounds(60, 73, 86, 20);
+                panel_1.add(txtKelvin);
+               
+                btnFahrenheit = new JButton("Fahrenheit");
+                btnFahrenheit.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                                if(txtFahrenheit.getText().equals(""))
+                                {
+                                        JOptionPane.showMessageDialog(null, "Informe a temperatura em Fahrenheit");
+                                }
+                                else
+                                {
+                                        double f = Double.parseDouble(txtFahrenheit.getText());
+                                        double c = (f - 32) / 1.8;
+                                        double k = c + 273.15;
+                                       
+                                        txtCelsius.setText(c + "");
+                                        txtKelvin.setText(k + "");
+                                }
+                               
+                        }
+                });
+                btnFahrenheit.setBounds(156, 10, 89, 23);
+                panel_1.add(btnFahrenheit);
+               
+                btnCelsius = new JButton("Celsius");
+                btnCelsius.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent arg0) {
+                                if(txtCelsius.getText().equals(""))
+                                {
+                                        JOptionPane.showMessageDialog(null, "Informe a temperatura em Celsius");
+                                }
+                                else
+                                {
+                                        double c = Double.parseDouble(txtCelsius.getText());
+                                        double f = (c * 1.8) + 32;
+                                        double k = c + 273.15;
+                                       
+                                        txtFahrenheit.setText(f + "");
+                                        txtKelvin.setText(k + "");
+                                }
+                               
+                        }
+                });
+                btnCelsius.setBounds(156, 41, 89, 23);
+                panel_1.add(btnCelsius);
+               
+                btnKelvin = new JButton("Kelvin");
+                btnKelvin.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent arg0) {
+                                if(txtKelvin.getText().equals(""))
+                                {
+                                        JOptionPane.showMessageDialog(null, "Informe a temperatura em Kelvin");
+                                }
+                                else
+                                {
+                                        double k = Double.parseDouble(txtKelvin.getText());
+                                        double f = (k * 1.8) - 459.67;
+                                        double c = k - 273.15;
+                                       
+                                        txtFahrenheit.setText(f + "");
+                                        txtCelsius.setText(c + "");
+                                }
+                               
+                        }
+                });
+                btnKelvin.setBounds(156, 72, 89, 23);
+                panel_1.add(btnKelvin);
+               
+                panel_2 = new JPanel();
+                getContentPane().add(panel_2, BorderLayout.SOUTH);
+               
+                lblResultado = new JLabel("Resultado");
+                panel_2.add(lblResultado);
+               
+                setSize(280, 170);
+                setVisible(true);
+        }
+ 
+        public static void main(String[] args) {
+                new ConversorDeTemperatura();
+        }
+}
